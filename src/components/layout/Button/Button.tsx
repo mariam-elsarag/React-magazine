@@ -27,7 +27,7 @@ const Button: React.FC<buttonType> = ({
   target,
 }) => {
   const sizes = {
-    lg: "h-[40px] lg:h-[52px]",
+    lg: "h-[40px] lg:h-[48px]",
     sm: "h-[40px]",
   };
   const base = `${sizes[size]} mx-auto outline-none flex items-center justify-center gap-2  py-[10px] px-6 lg:py-4 lg:px-5 rounded-[12px] transation-all ease-in-out duration-300 cursor-pointer font-[500] text-sm `;
