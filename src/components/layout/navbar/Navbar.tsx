@@ -116,17 +116,17 @@ const Profile_Dropdown = () => {
       <ul
         className={` min-w-[162px] absolute z-10 top-[40px] ${
           toggle ? "flex" : "hidden"
-        } bg-white main_shadow rounded-xl py-2 px-4 flex flex-col gap-3 `}
+        } bg-white main_shadow rounded-xl py-2  flex flex-col gap-3 `}
       >
-        <li>
+        <li className="transition-all ease-in-out duration-300 px-4 py-1 hover:bg-gray-100">
           <Link to="/profile" className="flex items-center gap-1 text-black/75">
             <UserIcon width="15" height="15" fill="#3E3232BF" />
-            <span>{user.full_name}</span>
+            <span>Profile</span>
           </Link>
         </li>
         <li
           onClick={() => logout()}
-          className=" cursor-pointer flex items-center gap-1 text-black/75"
+          className=" cursor-pointer flex items-center gap-1 text-black/75 transition-all ease-in-out duration-300 px-4 py-1 hover:bg-gray-100"
         >
           <LogoutIcon width="18" height="18" fill="#3E3232BF" />
           <span>logout</span>

@@ -62,12 +62,14 @@ const Login = () => {
       const response = await axiosInstance.post("/api/auth/login", data);
       if (response?.status === 200) {
         setToken(response.data.token);
+        Cookies.set("userId", response.data.userId);
         Cookies.set("token", response.data.token);
         Cookies.set("avatar", response.data.avatar);
         Cookies.set("full_name", response.data.full_name);
         setUser({
           full_name: response.data.full_name,
           avatar: response.data.avatar,
+          userId: response.data.userId,
         });
         navigate("/");
         toast.success("Successfully loged in");

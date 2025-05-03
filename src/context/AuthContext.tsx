@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 interface userType {
   full_name: string | undefined | null;
   avatar: string | undefined | null;
+  userId: string | undefined | null;
 }
 interface AuthContextType {
   token: string | undefined | null;
@@ -18,8 +19,9 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     Cookies.get("token")
   );
   const [user, setUser] = useState<userType>({
-    full_name: Cookies.get("full_name") || "Mariam tarek",
+    full_name: Cookies.get("full_name"),
     avatar: Cookies.get("avatar"),
+    userId: Cookies.get("userId"),
   });
   return (
     <AuthContext.Provider
