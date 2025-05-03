@@ -22,7 +22,7 @@ const Navbar = () => {
   const [toggleNav, setToggleNav] = useState(false);
   return (
     <>
-      <nav className="nav_container navbar flex items-center gap-2 justify-between  w-full max-w-[1536px] mx-auto   py-4">
+      <nav className="Container nav_container navbar flex items-center gap-2 justify-between  w-full max-w-[1536px] mx-auto   py-4">
         <Link to="/">
           <img src={Logo} alt="logo" className="w-[100px]" />
         </Link>

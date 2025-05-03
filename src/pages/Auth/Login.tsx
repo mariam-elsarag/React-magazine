@@ -61,7 +61,6 @@ const Login = () => {
       setLoading(true);
       const response = await axiosInstance.post("/api/auth/login", data);
       if (response?.status === 200) {
-        console.log(response.data);
         setToken(response.data.token);
         Cookies.set("token", response.data.token);
         Cookies.set("avatar", response.data.avatar);

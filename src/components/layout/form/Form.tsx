@@ -6,10 +6,11 @@ import {
 } from "react-hook-form";
 import Password from "./Password";
 import { Link } from "react-router-dom";
+import OTPInput, { ResendOTP } from "otp-input-react";
 
 interface FormItemType {
   id?: string | number;
-  formType?: "input" | "textarea" | "password";
+  formType?: "input" | "textarea" | "password" | "otp";
   fieldName?: string | undefined;
   validator?: RegisterOptions;
   label?: string;
@@ -19,6 +20,7 @@ interface FormItemType {
   className?: string;
   groupWith?: number;
   isGrouped?: boolean;
+  disabled?: boolean;
   hasForgetPassword?: boolean;
 }
 interface FormData {
@@ -50,6 +52,7 @@ const Form: React.FC<FormProps> = ({ formList, control, errors, loading }) => {
             onChange={field.onChange}
             className={`input border ${errorClass}`}
             placeholder={item.placeholder}
+            disabled={loading || item?.disabled}
           />
         );
       case "password":
@@ -72,6 +75,18 @@ const Form: React.FC<FormProps> = ({ formList, control, errors, loading }) => {
             onChange={field.onChange}
             className={`input border ${errorClass} resize-none !h-auto !min-h-[100px] `}
             placeholder={item.placeholder}
+          />
+        );
+      case "otp":
+        return (
+          <OTPInput
+            value={field.value ?? ""}
+            onChange={field.onChange}
+            autoFocus
+            OTPLength={6}
+            otpType="number"
+            disabled={loading || item?.disabled}
+            inputClassName="border-2 border-grey outline-none focus:!border-light-grey rounded-lg  !w-[45px] !h-[45px]"
           />
         );
       default:
